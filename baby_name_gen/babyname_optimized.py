@@ -1,27 +1,29 @@
 import random, string
 
 letter_input = []
+name_length = 4
 
-for i in range(0, 4):
+for i in range(0, name_length):
     letter_input.append(input('Choose a letter..."v" for vowels, "c" for consonants, "l" for any other: '))
-    print(i)
 
 vowels = 'aeiouy'
 consonants = 'bcdfghjklmnpqrstvwxz'
-letter = string.ascii_lowercase
+any = string.ascii_lowercase
+name = ""
 
 def generator():
+    global name
     for i in letter_input:
-        if letter_input == "v":
-            letter[i] = random.choice(vowels)
-        elif letter_input == "c":
-            letter[i] = random.choice(consonants)
-        elif letter_input == "v":
-            letter[i] = random.choice(letter)
+        if i == "v":
+            letter = random.choice(vowels)
+        elif i == "c":
+            letter = random.choice(consonants)
+        elif i == "v":
+            letter = random.choice(any)
         else:
-            letter[i] = letter_input
-        name.append(letter[i])
+            letter = letter_input
+        name += letter
 
-    return (name)
+    return (name.title())
 
 print(generator())
