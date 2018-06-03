@@ -33,7 +33,7 @@ def getAction(salePrice, downPmt, intRate, term):
     print("\nSale price: " + str(salePrice))
     print("Down Payment: " +str(downPmt))
     print("Interest Rate: " +str(intRate))
-    print("Terms in months: " +str(term))
+    print("Term: " +str(term) +" (months), " + str(term/12) + " (years)")
     print("Available actions:\nM = monthly payment\nT = total payment")
     print("I = interest paid")
     monthlyPmt = calcMonthlyPmt(salePrice, downPmt, intRate, term)
