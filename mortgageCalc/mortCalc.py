@@ -23,16 +23,16 @@ def actionSelector(action, monthlyPmt, term):
 
 def main():
     print("Welcome to the Mortgage Calculator! \n")
-    salePrice = float(input("Sale Price: "))
-    downPmt = int(input("Down payment: "))
+    salePrice = float(input("Sale Price: "))*1.00
+    downPmt = float(input("Down payment: "))*1.00
     intRate = float(input("Annual interest rate: "))
     term = 360
     getAction(salePrice, downPmt, intRate, term)
 
 def getAction(salePrice, downPmt, intRate, term):
-    print("\nSale price: " + str(salePrice))
-    print("Down Payment: " +str(downPmt))
-    print("Interest Rate: " +str(intRate))
+    print("\nSale price: $" + str(round(salePrice, 2)))
+    print("Down Payment: $" + str(round(downPmt, 2)))
+    print("Interest Rate: " + str(intRate)+"%")
     print("Term: " +str(term) +" (months), " + str(term/12) + " (years)")
     print("Available actions:\nM = monthly payment\nT = total payment")
     print("I = interest paid")
