@@ -13,13 +13,11 @@ def calcTotalPmt(monthlyPmt, term):
 
 def actionSelector(action, monthlyPmt, term):
     action = action.lower()
-    if action == "m":
+    if action == "t":
         print("Total payment: $" + str(round(calcTotalPmt(monthlyPmt, term), 2)))
-    elif action == "t":
+    elif action == "m":
         print("$" + str(round(monthlyPmt, 2)))
     elif action == "i":
-        return
-
 
 def main():
     print("Welcome to the Mortgage Calculator! \n")
@@ -33,7 +31,7 @@ def getAction(salePrice, downPmt, intRate, term):
     print("\nSale price: $" + str(round(salePrice, 2)))
     print("Down Payment: $" + str(round(downPmt, 2)))
     print("Interest Rate: " + str(intRate)+"%")
-    print("Term: " +str(term) +" (months), " + str(term/12) + " (years)")
+    print("Term: " +str(term) +" (months), " + str(term/12) + " (years)\n")
     print("Available actions:\nM = monthly payment\nT = total payment")
     print("I = interest paid")
     monthlyPmt = calcMonthlyPmt(salePrice, downPmt, intRate, term)
