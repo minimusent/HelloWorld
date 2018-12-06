@@ -38,4 +38,5 @@ for coordinate in newCoords:
 
 
 for coordinate in newCoords:
-    print(str(coordinate.ID) + ', '+str(coordinate.closest))
+    print(str(coordinate.ID)+ ' ' + str(','.join(str(closest) for closest in coordinate.closest)))
+    # print(str(coordinate.ID) + ', '+str(coordinate.closest))
