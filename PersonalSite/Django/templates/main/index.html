@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="body-content">
+	<div class="name-section">
+		<h1>ADAM BRINK</h1>
+		<h2>Python Developer - Huntsville, AL</h2>
+		<a id="git-link" alt="GitHub Link" href="https://github.com/minimusent/HelloWorld">GitHub Link</a>
+	</div>
+	<hr id="about-line" class="line">
+	<!-- ABOUT SECTION -->
+	<div id="about-section" class="text-section">
+		<div class="section-left">
+			<h1 class="section-title">ABOUT ME</h1>
+			<p>
+			I am a developer with over 15 years of hobby experience.
+			<br><br/>
+			I have used HTML and CSS extensively since around 2003 when Macromedia still produced Dreamweaver.
+			</p>
+		</div>
+		<div class="section-right">
+			<p>
+				My journey began at the age of 10.
+				<br><br>
+				I discovered Game Maker, a program that allows anyone to create games.
+				This was my first exposure to a programming language.
+				Game Maker used GML, a language described as a mix of C and JavaScript.
+
+				It was this experience that laid the foundation for my passion in development.
+
+				I love its challenges, rewards, and everything in between.
+			</p>
+		</div>
+	</div>
+	<div id="edu-section" class="text-section">
+		<div class="section-left-alt">
+			<h1 id="edu-title" class="section-title">EDUCATION</h1>
+			<p>
+			I attended the University of Alabama from 2011-2014 and studied business.
+			Here I discovered Python, BASIC, and a little Java.
+			</p>
+		</div>
+		<div class="section-right-alt">
+			<p>
+			I graduated from <a id="wgu-link" href="https://www.gatesfoundation.org/Media-Center/Press-Releases/2000/01/Western-Governors-University-Receives-Grant" alt="Western Governors University">Western Governors University</a>
+			in 2016 with a degree in Business Management.
+			</p>
+		</div>
+	</div>
+	<div class="text-section">
+		<div class="section-left">
+			<h1 class="section-title">EXPERIENCE</h1>
+			<p>
+			I love creating responsive, clean code.
+			<br><br>
+			I created this website in order to demonstrate competency
+			in Django, HTML, and CSS.
+			</p>
+		</div>
+		<div class="section-right">
+			<p>
+			I have used PowerShell, Linux terminal, Dreamweaver, Atom, cloud-based editors, and, of course, Notepad!
+			<br><br>
+			I enjoy learning and working on projects during my free time.
+			</p>
+		</div>
+	</div>
+	<!-- CONTACT FORM SECTION -->
+	<div class="contact-section">
+		<div class="contact-header">
+			<h1>MISSING A PIECE OF THE PUZZLE?</h1>
+		</div>
+		<div id="front-form" class="contact-fields-wrapper">
+			<form action="https://formspree.io/adamthebrink@gmail.com"
+						method="POST" 
+						id="contact-form" 
+						name="contact">
+				<h2>Let's Chat!</h2>
+				<label for="name"></label>
+				<br>
+				<input name="name" 
+							id="name" 
+							placeholder="Name" 
+							type="text">
+				<br>
+				<label for="email"></label>
+				<br>
+				<input name="email" 
+							id="email" 
+							placeholder="Email" 
+							type="text" required>
+				<br>
+				<label for="message"></label>
+				<br>
+				<textarea name="message" 
+									id="message" 
+									placeholder="Quick message..." required></textarea>
+				<br>
+				<input type="submit" 
+							id="contact-form-submit" 
+							value="Submit">
+			</form>
+		</div>
+	</div>
+</div><!-- BODY CONTENT DIV -->
+{% endblock content %}

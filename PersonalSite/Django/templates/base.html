@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" 
+				type="text/css" 
+				href="{% static "css/style.css" %}" />
+	<link rel="stylesheet"
+				href="https://fonts.googleapis.com/css?family=Open+Sans">
+	<meta name="viewport" 
+				content="width=device-width, initial-scale=1">
+	<script type="text/javascript" 
+					src="{% static "js/index.js" %}"></script>
+	<title>
+		Adam Brink - Portfolio Site
+	</title>
+</head>
+<body>
+	<div class="top-banner">
+		<div class="top-menu">
+			<nav>
+				<div class="top-menu-button">
+					<a href="{% url 'home' %}"
+						 class="home-button">HOME</a>
+				</div>
+				<div class="top-menu-button">
+					<a href="#contact-form" 
+						 class="contact-button">CONTACT</a>
+				</div>
+			</nav>
+		</div>
+	</div>
+	{% block content %}
+	{% endblock %}
+	<!-- FOOTER SECTION -->
+	<div class="footer">
+		<div class="footer-copyright">
+			<center>Adam Brink | 2018 | All Rights Reserved.</center>
+		</div>
+	</div>
+</body>
+</html>
