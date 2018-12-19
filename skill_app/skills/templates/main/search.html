@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- SEARCH BAR -->
+<div class="search-bar">
+	<center>
+	<form name="myform" method="GET" action="{% url 'search' %}">
+		<input class="searchfield" name="search" type="text" placeholder="Search" />
+	</form>
+	</center>
+</div>
+<!-- END SEARCH BAR -->
+<!-- CONTENT SECTION -->
+<div class="content-body">
+	{% if user.is_authenticated %}
+	<!-- JOB ENTRIES SECTION -->
+	<div class="entry-display">
+		<div class="filters-menu">
+			<p>Showing {{ num_jobs }} results</p>
+			<div class="sort-wrapper">
+				<p>Sort By:</p>
+				<select class="sort-button" name="sort-method">
+					<option value="match">Match</option>
+					<option value="post-date">Post Date</option>
+				</select>
+				<p>Match Cutoff:</p>
+				<select class="sort-button" name="sort-method">
+					<option value="match">100%</option>
+					<option value="post-date">75%</option>
+					<option value="post-date">50%</option>
+					<option value="post-date">25%</option>
+				</select>
+			</div>
+		</div>
+		<div class="entries-wrapper">
+			{% load app_filters %}
+			{% for job in jobs.all %}
+			<div class="entry">
+				<div class="entry-header">
+					<div><h5 id="entry-match" style="color: {{ job.match|get_match_color }}">{{ job.get_total_match }}% match</h5></div>
+					<h2 id="entry-title">{{ job.title|title }}</h2><h3 id="entry-company"> with {{ job.co_name }}</h3>
+					<h4 id="entry-salary">at ${{ job.low_salary }}k - ${{ job.high_salary}}k per year</h4>
+					<p class="date-posted">{{ job.date_created|get_days_old_string }}</p>
+				</div>
+				<div class="entry-expand">
+					<div class="entry-day">
+						<h4>Typical Day</h4>
+						<p>{{ job.typical_day }}</p>
+						<br /><br />
+						<p>{{ job.avg_day }}</p>
+					</div>
+					<div class="entry-tech">
+						<h4>Tech Used</h4>
+						<p>{{ job.tech_used }}</p>
+					</div>
+					<div class="entry-skills">
+						<h4>Skills Used</h4>
+						{% for skill in job.skills.all %}
+						<p>
+						{{ skill|get_skill_match:user }}% - <b>{{ skill.length }} months</b> of <b>{{ skill.title }}</b>
+						</p>
+						<br /><br />
+						{% endfor %}
+					</div>
+					<div class="benefits">
+						<h4>Benefits</h4>
+						{% for ben in job.benefit.all %}
+						<p>{{ ben.title|title }}</p>
+						<br />
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% else %}
+<h2>Please <a href="{% url 'users:login' %}">log in</a> to view jobs</h2>
+{% endif %}
+{% endblock content %}

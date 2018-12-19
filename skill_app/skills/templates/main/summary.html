@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="summary-section">
+		<h1>Summary in progress</h1>
+ <div class="summary-section-yellow">
+ <h2>How to Use</h2>
+ 1. Create profile and enter each skill
+ <br /><br />
+ 2. Jobs are matched based on skill match percentage
+ <br /><br />
+ 3. Apply by clicking 'apply'
+ </div>
+ <div class="summary-section-white">
+		Hiring App is focused around using specific skills as blocks to determine job fit.
+</div>
+<div class="summary-section-blue">
+	<h2>1. Profile Setup</h2>
+	Each user first enters in specific skills and the length of time they have worked in that skill.
+	<br /><br />
+	This is done once, and as needed when new skills are learned.
+</div>
+<div class="summary-section-white">
+	<h2>2. Smart Match</h2>
+	Job positions are analyzed based on which skills are a good match.
+	<br /><br />
+	Location, salary, and a variety of pre-set preferences are also accounted for.
+</div>
+<div class="summary-section-green">
+This takes the focus off of searching for one specific job title, and opens up many possibilities.
+</div>
+<div class="summary-section-white">
+<h2>3. Apply</h2>
+Simply click the 'apply' button, and that's it!
+<br /><br />
+A message is sent to the company, and they will follow up within 5 business days.
+</div>
+<div class="summary-section-blue">
+Gone are the days of sifting through hundreds of out-dated, irrelevant job postings.
+</div>
+<div class="summary-section-white">
+Hiring app helps the candidate find the perfect job fit, and the company the perfect employee.
+</div>
+<div class="summary-section-yellow">
+	<h2>Click to see demo pages</h2>
+	<a href="{% url 'home' %}">Sample jobs page</a>
+	<br /><br />
+	<a href="{% url 'profile' %}">Sample profile page</a>
+	</div>
+</div>
+{% endblock content %}
