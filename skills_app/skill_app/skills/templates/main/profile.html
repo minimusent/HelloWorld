@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- PROFILE CONTENT -->
+<div class="profile-wrapper">
+		<h2>User Profile</h2>
+		<div class="profile">
+			{{ user.first_name }} {{ user.last_name }}
+			 -
+			<div class="location">{{ user.city }}, {{ user.state }}</div>
+				<hr />
+				<h3> Summary</h3>
+				<div class="profile-summary">
+					<p>{{ user.summary }}</p>
+				</div>
+				<hr />
+				<h3>Skills</h3>
+				{% for skill in user.skills.all %}
+				<b>{{ skill.length }} months</b> of <b>{{ skill.title }}</b>
+				<br /><br />
+				{% endfor %}
+			</div>
+		</div>
+		{% endblock content %}
