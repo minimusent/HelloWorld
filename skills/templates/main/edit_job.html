@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<form action="{% url 'edit_job' job.id %}" method="POST" class="job-form">{% csrf_token %}
+  <h2>Add job</h2>
+  Title: {{ form.title }} <br />
+  City: {{ form.city }} <br />
+  State: {{ form.state }} <br />
+  Salary: {{ form.low_salary }} - {{form.high_salary }} <br />
+  <hr />
+  Typical day: {{ form.typical_day}} <br />
+  <hr />
+  Average day: {{ form.avg_day }} <br />
+  <hr />
+  Tech Used: {{ form.tech_used }} <br />
+  Requirements: {{ form.requirements }} <br />
+  Skills: {{ form.skills }} <br />
+  Benefits: {{ form.benefit }} <br />
+  <button type="submit">Make Changes</button>
+</form>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post" class="user-change-form">
+  <h2>Make Changes</h2>
+  {% csrf_token %}
+  {{ form.as_p|linebreaks }}
+  <button type="submit">Make changes</button>
+</form>
+
+{% endblock content %}

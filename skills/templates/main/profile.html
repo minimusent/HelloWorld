@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- PROFILE CONTENT -->
+<div class="profile-wrapper">
+		<h2>User Profile</h2>
+		<a href="{% url 'users:edit_user' %}" class="edit-button">EDIT</a>
+		<div class="profile">
+			{{ user.first_name }} {{ user.last_name }}
+			 -
+			<div class="location">{{ user.city }}, {{ user.state }}</div>
+				<hr />
+				<h3> Summary</h3>
+				<div class="profile-summary">
+					<p>{{ user.summary }}</p>
+				</div>
+				<hr />
+				<h3>Skills</h3>
+				{% for skill in user.skills.all %}
+				<b>{{ skill.length }} months</b> of <b>{{ skill.title }}</b>
+				<a href="{% url 'delete_skill' skill.id %}" class="delete-button">X</a>
+				<br /><br />
+				{% endfor %}
+			</div>
+		</div>
+		{% endblock content %}

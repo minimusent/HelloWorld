@@ -1,0 +1,75 @@
+{% load staticfiles %}
+        <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+		<meta charset="utf-8">
+    <title>Hiring App</title>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+		<!-- TOP MENU SECTION -->
+		<nav>
+		<div class="top-menu">
+				<div class="menu-button">
+					<a alt="Job Listings" href="{% url 'home' %}">
+						Find Jobs
+						</a>
+				</div>
+				<div class="menu-button">
+					<a alt="Find Candidates" href="{% url 'candidates' %}">
+						Find Candidates
+						</a>
+				</div>
+				<div class="menu-button">
+					<a alt="Summary Page" href="{% url 'summary' %}">
+					Summary
+					</a>
+				</div>
+        {% if user.is_authenticated %}
+            <div class="welcome-name">
+            Welcome, {{ user.first_name }}!
+            </div>
+        <div id="my-account-button" class="menu-button">
+				      <a alt="Account Page" href="{% url 'profile' %}">My Account</a>
+        </div>
+        <a href="{% url 'logout' %}" id="logout-link">log out</a>
+        {% else %}
+        <div class="top-login">
+          <a href="{% url 'users:login' %}" id="login-link">Log In</a>
+          <a href="{% url 'users:signup' %}" id="signup-link">Sign Up</a>
+        </div>
+        {% endif %}
+				</div>
+		</div>
+		</nav>
+    {% block content %}{% endblock content %}
+    <div class="footer-links">
+      <div class="footer-links-section">
+        <h3>For Candidates</h3>
+        <a href="{% url 'home' %}">Find Jobs</a>
+        <a href="{% url 'users:signup' %}">Sign Up</a>
+        <a href="{% url 'home' %}">Help!</a>
+      </div>
+      <div class="footer-links-section">
+        <h3>For Employers</h3>
+        <a href="{% url 'add_job' %}">Post Jobs</a>
+        <a href="{% url 'candidates' %}">Find Candidates</a>
+        <a href="{% url 'home' %}">Help!</a>
+      </div>
+      <div class="footer-links-section">
+        <h3>Helpful Links</h3>
+        <a href="{% url 'home' %}">Contact Us</a>
+        <a href="{% url 'home' %}">Privacy Policy</a>
+        <a href="{% url 'home' %}">Terms of Use</a>
+      </div>
+    </div>
+		<div class="footer-rights">
+		    &copy; 2018 Hiring App - N Corp | All Rights Reserved
+		</div>
+		<!-- SCRIPTS -->
+    <script src="{% static "js/index.js" %}"></script>
+</body>
+</html>
